@@ -949,3 +949,349 @@ Migrating to CreateCategoriesExperiences (20201007170630)
   [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
   [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_experiences" ON "categories"."id" = "categories_experiences"."category_id" WHERE "categories_experiences"."experience_id" = ? LIMIT ?[0m  [["experience_id", 2], ["LIMIT", 11]]
   [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categories_experiences" ON "categories"."id" = "categories_experiences"."category_id" WHERE "categories_experiences"."experience_id" = ?[0m  [["experience_id", 2]]
+Started GET "/categories" for ::1 at 2020-10-08 12:06:53 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/categories"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/experiences" for ::1 at 2020-10-08 12:07:58 -0500
+Processing by ExperiencesController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1837)
+
+
+  
+NameError (uninitialized constant ExperiencesController::Expernience):
+  
+app/controllers/experiences_controller.rb:3:in `index'
+Started GET "/experiences" for ::1 at 2020-10-08 12:09:02 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (6.1ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 98ms (Views: 40.1ms | ActiveRecord: 7.2ms | Allocations: 10318)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:10:09 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms | Allocations: 1648)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:13:11 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 1633)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:13:26 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 1646)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:13:34 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 1632)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:13:45 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 1632)
+
+
+Started GET "/experiences" for ::1 at 2020-10-08 12:14:58 -0500
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 1633)
+
+
+Started GET "/experiences/3" for ::1 at 2020-10-08 12:16:46 -0500
+Processing by ExperiencesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:8:in `show'
+Completed 200 OK in 48ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 2559)
+
+
+Started GET "/experiences/3" for ::1 at 2020-10-08 12:17:29 -0500
+Processing by ExperiencesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:8:in `show'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 754)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:29:43 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms | Allocations: 3751)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:19:in `create'
+Started GET "/experiences" for ::1 at 2020-10-08 12:31:13 -0500
+Processing by ExperiencesController#index as HTML
+  [1m[36mExperience Load (10.7ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 3.8ms | ActiveRecord: 10.7ms | Allocations: 1658)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:31:22 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 803)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:19:in `create'
+Started POST "/experiences" for ::1 at 2020-10-08 12:34:35 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.9ms | Allocations: 5737)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:20:in `create'
+Started POST "/experiences" for ::1 at 2020-10-08 12:38:57 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+Completed 500 Internal Server Error in 274077ms (ActiveRecord: 1.5ms | Allocations: 100587)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:21:in `create'
+Started POST "/experiences" for ::1 at 2020-10-08 12:44:47 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (12.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"SomeTitle", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (8.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "SomeTitle"], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (1.7ms)[0m  [1m[32mINSERT INTO "experiences" ("title", "description", "location", "date", "coordinates", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "SomeTitle"], ["description", "Poodle"], ["location", "here"], ["date", "04/20/2020"], ["coordinates", "23.666666 -120.420200"], ["created_at", "2020-10-08 17:45:02.030182"], ["updated_at", "2020-10-08 17:45:02.030182"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 13804ms (Views: 1.1ms | ActiveRecord: 12.5ms | Allocations: 24103)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+Started POST "/experiences" for ::1 at 2020-10-08 12:47:46 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (2.1ms)[0m  [1m[32mINSERT INTO "experiences" ("title", "description", "location", "date", "coordinates", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", ""], ["description", "Poodle"], ["location", "here"], ["date", "04/20/2020"], ["coordinates", "23.666666 -120.420200"], ["created_at", "2020-10-08 17:47:51.771007"], ["updated_at", "2020-10-08 17:47:51.771007"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 4785ms (Views: 0.6ms | ActiveRecord: 3.5ms | Allocations: 9991)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:49:53 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (10.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 6472ms (Views: 0.2ms | ActiveRecord: 10.9ms | Allocations: 13351)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:50:18 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 8287)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:51:43 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>"", "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 3255)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:52:33 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Create (0.5ms)[0m  [1m[32mINSERT INTO "experiences" ("description", "location", "date", "coordinates", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["description", "Poodle"], ["location", "here"], ["date", "04/20/2020"], ["coordinates", "23.666666 -120.420200"], ["created_at", "2020-10-08 17:52:33.533471"], ["updated_at", "2020-10-08 17:52:33.533471"]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 27ms (Views: 0.6ms | ActiveRecord: 3.4ms | Allocations: 3780)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:52:50 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>nil, "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200", "experience"=>{"title"=>nil, "description"=>"Poodle", "location"=>"here", "date"=>"04/20/2020", "coordinates"=>"23.666666 -120.420200"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[36mExperience Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/experiences_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 3246)
+
+
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience::HABTM_Categories Destroy (0.2ms)[0m  [1m[31mDELETE FROM "categories_experiences" WHERE "categories_experiences"."experience_id" = ?[0m  [["experience_id", 8]]
+  [1m[36mExperience Destroy (0.5ms)[0m  [1m[31mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience::HABTM_Categories Destroy (0.2ms)[0m  [1m[31mDELETE FROM "categories_experiences" WHERE "categories_experiences"."experience_id" = ?[0m  [["experience_id", 7]]
+  [1m[36mExperience Destroy (0.4ms)[0m  [1m[31mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience::HABTM_Categories Destroy (0.2ms)[0m  [1m[31mDELETE FROM "categories_experiences" WHERE "categories_experiences"."experience_id" = ?[0m  [["experience_id", 6]]
+  [1m[36mExperience Destroy (0.4ms)[0m  [1m[31mDELETE FROM "experiences" WHERE "experiences"."id" = ?[0m  [["id", 6]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+Started GET "/categories" for ::1 at 2020-10-08 12:56:44 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as */*
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 0.0ms | Allocations: 62372)
+
+
+  
+NameError (undefined local variable or method `categoriess' for #<CategoriesController:0x00007ff0f04a6620>
+Did you mean?  categories):
+  
+app/controllers/categories_controller.rb:4:in `index'
+Started GET "/categories" for ::1 at 2020-10-08 12:57:24 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (35.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 113ms (Views: 21.2ms | ActiveRecord: 37.2ms | Allocations: 6395)
+
+
+Started GET "/categories/3" for ::1 at 2020-10-08 12:57:35 -0500
+Processing by CategoriesController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:8:in `show'
+Completed 200 OK in 49ms (Views: 0.5ms | ActiveRecord: 2.1ms | Allocations: 1105)
+
+
+Started POST "/experiences" for ::1 at 2020-10-08 12:58:19 -0500
+Processing by ExperiencesController#create as JSON
+  Parameters: {"name"=>"Easter", "experience"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.6ms | Allocations: 133)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: experience):
+  
+app/controllers/experiences_controller.rb:30:in `exp_params'
+app/controllers/experiences_controller.rb:19:in `create'
+Started POST "/categories" for ::1 at 2020-10-08 12:59:00 -0500
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"Easter", "category"=>{"name"=>"Easter"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 111)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: experience):
+  
+app/controllers/categories_controller.rb:32:in `cat_params'
+app/controllers/categories_controller.rb:18:in `create'
+Started POST "/categories" for ::1 at 2020-10-08 13:00:57 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"Easter", "category"=>{"name"=>"Easter"}}
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 1.6ms | Allocations: 7428)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'name' for Experience.):
+  
+app/controllers/categories_controller.rb:18:in `create'
+Started POST "/categories" for ::1 at 2020-10-08 13:01:26 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"Easter", "category"=>{"name"=>"Easter"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Easter"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Easter"], ["created_at", "2020-10-08 18:01:26.292595"], ["updated_at", "2020-10-08 18:01:26.292595"]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 3.4ms | Allocations: 5869)
+
+

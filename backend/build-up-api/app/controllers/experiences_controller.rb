@@ -1,6 +1,7 @@
+require 'pry'
 class ExperiencesController < ApplicationController
   def index
-    experiences = Expernience.all
+    experiences = Experience.all
     render json: experiences, except: [:updated_at]
   end
 
@@ -14,14 +15,24 @@ class ExperiencesController < ApplicationController
 end
 
 def create
+
   experience = Experience.new(exp_params)
   #figure out if you need to put the categories in as an array of strings, or as category objects
-  experience.categories = params[:categories]
   if experience.save
-    render json: experience
+    render json: {experience: experience, message: 'experience created'}
   else
-    render json: { message: 'Invalid experience data', errors: experience.errors.full_messages_for(:coordinates)}
+    render json: { message: 'Invalid experience data', errors: experience.errors.full_messages()}
   end
+end
+
+def search
+  terms = params[:terms]
+  # terms.each do |term|
+  #   case term
+  #   when term.
+  #
+  #   end
+  # end
 end
 
 private
