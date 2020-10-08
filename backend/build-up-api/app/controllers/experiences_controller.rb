@@ -14,7 +14,7 @@ class ExperiencesController < ApplicationController
 end
 
 def create
-  experience = Experience.new(experience_params)
+  experience = Experience.new(exp_params)
   #figure out if you need to put the categories in as an array of strings, or as category objects
   experience.categories = params[:categories]
   if experience.save
@@ -25,5 +25,8 @@ def create
 end
 
 private
-#hey dummy- add your experience_params here!
+  def exp_params
+    params.require(:experience).permit(:title, :description, :location, :date, :photo, :categories, :coordinates)
+  end
+
 end
