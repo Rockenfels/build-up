@@ -30,10 +30,8 @@ ActiveRecord::Schema.define(version: 2020_10_07_170630) do
     t.string "description"
     t.string "location"
     t.string "date"
-    t.string "photo1"
-    t.string "photo2"
-    t.string "photo3"
-    t.integer "likes"
+    t.string "photo"
+    t.integer "likes", default: 0
     t.string "coordinates"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

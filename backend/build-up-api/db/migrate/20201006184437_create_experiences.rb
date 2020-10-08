@@ -5,10 +5,8 @@ class CreateExperiences < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :location
       t.string :date
-      t.string :photo1
-      t.string :photo2
-      t.string :photo3
-      t.integer :likes
+      t.string :photo
+      t.integer :likes, default: 0
       t.string :coordinates
       t.timestamps
     end
