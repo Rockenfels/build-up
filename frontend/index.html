@@ -1,1 +1,71 @@
-a
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Build-Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="/images/favicon.png">
+
+    <meta name="description" content="A site built for positivity">
+    <meta name="author" content="Ray Ockenfels">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <div id='logo'>
+      <h1>Build-Up</h1>
+    </div>
+    <nav id='header-nav'>
+      <a href="#" id='refresh' class='nav-link'>Refresh</a>
+      <a href="#" id='new' class='nav-link'>New Experience</a>
+      <a href="#" id='love' class="nav-link">Love Experiences</a>
+      <a href="#" id='travel' class="nav-link">Travel Experiences</a>
+      <a href="#" id='birthdays' class="nav-link">Birthday Experiences</a>
+      <a href="#" id='cat-search-btn' class="nav-search">Category Search</a>
+      <a href="#" ic='exp-search-btn' class="nav-search">Experience Search</a>
+    </nav>
+  </header>
+
+  <section id='cat-search'>
+    <form class="search-form" action="/categories/search" method="post">
+      //Add dropdown for scope param
+      <input type="text" name="search[terms]" placeholder="Your search here">
+      <input type="submit" name="submit" value="Search">
+    </form>
+  </section>
+
+  <section id='exp-search'>
+    <form class="search-form" action="/experiences/search" method="post">
+    <label for="scope">Select search scope:</label>
+
+    <select name="scope" id="exp-scope">
+        <option value="title">Title</option>
+        <option value="description">Description</option>
+        <option value="location">Location</option>
+        <option value="likes">Likes</option>
+        <option value="coordinates">Coordinates</option>
+    </select>
+      <input type="text" name="search[terms]" placeholder="Your search here">
+      <input type="submit" name="submit" value="Search">
+    </form>
+  </section>
+
+  <section id='description field'>
+    <h2>Here's what it is:</h2>
+    <p id='description'></p>
+  </section>
+
+  <section id='experience-field'>
+    <div id='experience-title'>
+      <h2>Build each other up!</h2>
+    </div>
+    <div id='experience-grid'>
+    </div>
+  </section>
+
+  <footer>
+    //copyright and user agreement?
+  </footer>
+</body>
