@@ -25,6 +25,18 @@ def create
   end
 end
 
+def search
+  scope = params[:search][:scope] + ' = ?'
+  terms = params[:search][:terms]
+  result = Category.where(scope, terms)
+  binding.pry()
+  if !result.nil?
+    render json: { message: 'Results found!', result: result}
+  else
+    render json: { message: 'No results found, please try different terms'}
+  end
+end
+
 #strong params for categories
 private
   def cat_params

@@ -26,13 +26,14 @@ def create
 end
 
 def search
-  terms = params[:terms]
-  # terms.each do |term|
-  #   case term
-  #   when term.
-  #
-  #   end
-  # end
+  scope = params[:search][:scope] + ' = ?'
+  terms = params[:search][:terms]
+  result = Experience.where(scope, terms)
+  if !result.nil?
+    render json: { message: 'Results found!', result: result}
+  else
+    render json: { message: 'No results found, please try different terms'}
+  end
 end
 
 private
