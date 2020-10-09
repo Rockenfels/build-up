@@ -36,6 +36,10 @@ def search
   end
 end
 
+def newest
+  
+end
+
 private
   def exp_params
     params.require(:experience).permit(:title, :description, :location, :date, :photo, :categories, :coordinates)

@@ -30,7 +30,8 @@
 
   <section id='cat-search'>
     <form class="search-form" action="/categories/search" method="post">
-      //Add dropdown for scope param
+    //No datalist needed for categories. Users enter the category they're looking for
+      <label for="search[terms]">Enter your search here: </label>
       <input type="text" name="search[terms]" placeholder="Your search here">
       <input type="submit" name="submit" value="Search">
     </form>
@@ -38,15 +39,17 @@
 
   <section id='exp-search'>
     <form class="search-form" action="/experiences/search" method="post">
-    <label for="scope">Select search scope:</label>
 
-    <select name="scope" id="exp-scope">
-        <option value="title">Title</option>
-        <option value="description">Description</option>
-        <option value="location">Location</option>
-        <option value="likes">Likes</option>
-        <option value="coordinates">Coordinates</option>
-    </select>
+      <label for="search[scope]">Select search scope:</label>
+      <select name="search[scope]" id="exp-scope">
+          <option value="title">Title</option>
+          <option value="description">Description</option>
+          <option value="location">Location</option>
+          <option value="likes">Likes</option>
+          <option value="coordinates">Coordinates</option>
+      </select>
+
+      <label for="search[terms]">Enter your search here: </label>
       <input type="text" name="search[terms]" placeholder="Your search here">
       <input type="submit" name="submit" value="Search">
     </form>
@@ -54,18 +57,34 @@
 
   <section id='description field'>
     <h2>Here's what it is:</h2>
-    <p id='description'></p>
+    <p class='description--text'>
+      Just like how adventurers leave stack of stones behind them on their travles
+      to let thos who come after them know they were there, Build-Up was
+      creatd to do the same thing in the midst of a global pandemic.
+    </p>
+    <p class="description--text">
+      Build-Up is designed to be a place online wher epeople can share the positive
+      moments & experiences that are happening in their lives, no matter where you are in the world
+      or what's happening in it.
+    </p>
+    <p class="description-text">
+      Build youself up. Build eachother up. Stay positive.
+    </p>
   </section>
 
   <section id='experience-field'>
-    <div id='experience-title'>
-      <h2>Build each other up!</h2>
+    <h2>Here's what was just built: </h2>
+    <div id="newest-grid">
     </div>
+    <h2>Here's some of what people are celebrating: </h2>
+    <div id="liked-grid">
+    </div>
+    <h2>Here's what's been built so far:</h2>
     <div id='experience-grid'>
     </div>
   </section>
 
   <footer>
-    //copyright and user agreement?
+    //add shares icons
   </footer>
 </body>

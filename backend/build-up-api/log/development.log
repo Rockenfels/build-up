@@ -1497,3 +1497,310 @@ Processing by ExperiencesController#search as JSON
 Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 1.7ms | Allocations: 6252)
 
 
+Started GET "/categories" for ::1 at 2020-10-09 13:20:00 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (15.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 78ms (Views: 14.1ms | ActiveRecord: 16.1ms | Allocations: 7265)
+
+
+Started POST "/experiences/search" for ::1 at 2020-10-09 13:20:29 -0500
+Processing by ExperiencesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "experience"=>{}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 653)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:29:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:20:56 -0500
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+  
+TypeError (can't quote Regexp):
+  
+app/controllers/categories_controller.rb:30:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:21:50 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+Completed 500 Internal Server Error in 218948ms (ActiveRecord: 0.8ms | Allocations: 36827)
+
+
+  
+TypeError (can't quote Regexp):
+  
+app/controllers/categories_controller.rb:31:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:25:38 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i') LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i') LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ (pry):7:in `search'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i') LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ (pry):9:in `search'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name REGEXP '/birthdays/i')[0m
+  ↳ app/controllers/categories_controller.rb:34:in `search'
+Completed 500 Internal Server Error in 275265ms (ActiveRecord: 5.6ms | Allocations: 23115)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such function: REGEXP):
+  
+app/controllers/categories_controller.rb:34:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:32:32 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays"/i)[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays"/i) LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays"/i)[0m
+  ↳ app/controllers/categories_controller.rb:34:in `search'
+Completed 500 Internal Server Error in 412722ms (ActiveRecord: 2.6ms | Allocations: 19522)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "/": syntax error):
+  
+app/controllers/categories_controller.rb:34:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:39:44 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays/i")[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays/i") LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (/name REGEXP "birthdays/i")[0m
+  ↳ app/controllers/categories_controller.rb:34:in `search'
+Completed 500 Internal Server Error in 4187ms (ActiveRecord: 2.0ms | Allocations: 10979)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "/": syntax error):
+  
+app/controllers/categories_controller.rb:34:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:41:45 -0500
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (8.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+Completed 200 OK in 161404ms (Views: 0.6ms | ActiveRecord: 9.8ms | Allocations: 14160)
+
+
+Started POST "/categories/search" for ::1 at 2020-10-09 13:45:46 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.9ms | Allocations: 5127)
+
+
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007fdf73def148>):
+  
+app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Treat Yourself"], ["LIMIT", 1]]
+  [1m[36mExperience Load (22.9ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ? LIMIT ?[0m  [["category_id", 9], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 9]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:47:36 -0500
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2918)
+
+
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007fdf73d067e0>):
+  
+app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:48:11 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 29868ms (ActiveRecord: 0.8ms | Allocations: 79426)
+
+
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007fdf73bf7ed0>):
+  
+app/controllers/categories_controller.rb:33:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:48:52 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays'))[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')) LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays'))[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')) LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays'))[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')) LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')) LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE (category = SELECT "categories".* FROM "categories" WHERE (name = 'Birthdays'))[0m
+  ↳ (pry):11:in `search'
+Completed 500 Internal Server Error in 131100ms (ActiveRecord: 5.1ms | Allocations: 160833)
+
+
+  
+NameError (undefined local variable or method `cat' for #<CategoriesController:0x00007fdf73c06480>
+Did you mean?  catch):
+  
+app/controllers/categories_controller.rb:33:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:51:26 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.7ms | Allocations: 11528)
+
+
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007fdf7365f7e8>):
+  
+app/controllers/categories_controller.rb:33:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:52:37 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (10.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.7ms | Allocations: 5167)
+
+
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007ff25d860798>):
+  
+app/controllers/categories_controller.rb:32:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:53:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."category" IN (SELECT "categories"."id" FROM "categories" WHERE (name = 'Birthdays')) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ (pry):1:in `search'
+  [1m[36mCategory Load (29.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+Completed 500 Internal Server Error in 234481ms (ActiveRecord: 31.5ms | Allocations: 30250)
+
+
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007ff25e841a18>):
+  
+app/controllers/categories_controller.rb:33:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:58:00 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (15.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.7ms | Allocations: 5168)
+
+
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007f998ca895a8>):
+  
+app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays') LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/categories/search" for ::1 at 2020-10-09 13:58:29 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (10.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.9ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+Completed 500 Internal Server Error in 35365ms (ActiveRecord: 14.4ms | Allocations: 43108)
+
+
+  
+NoMethodError (undefined method `experiences' for #<Category::ActiveRecord_Relation:0x00007f99908faeb8>):
+  
+app/controllers/categories_controller.rb:32:in `search'
+Started POST "/categories/search" for ::1 at 2020-10-09 13:59:34 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (8.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.9ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/controllers/categories_controller.rb:34:in `search'
+Completed 200 OK in 81ms (Views: 25.5ms | ActiveRecord: 12.3ms | Allocations: 18098)
+
+
+Started POST "/categories/search" for ::1 at 2020-10-09 14:00:09 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Birthdays"}, "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Birthdays')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+Completed 200 OK in 55511ms (Views: 0.6ms | ActiveRecord: 3.3ms | Allocations: 99472)
+
+
+Started POST "/categories/search" for ::1 at 2020-10-09 14:01:15 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"Treat Yourself"}, "category"=>{}}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE (name = 'Treat Yourself')[0m
+  ↳ app/controllers/categories_controller.rb:31:in `search'
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 9]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+Completed 200 OK in 11550ms (Views: 0.9ms | ActiveRecord: 3.2ms | Allocations: 26154)
+
+
+Started POST "/experiences/search" for ::1 at 2020-10-09 14:25:40 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#search as JSON
+  Parameters: {"search"=>{"terms"=>"birthdays"}, "experience"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 640)
+
+
+  
+NoMethodError (undefined method `+' for nil:NilClass):
+  
+app/controllers/experiences_controller.rb:29:in `search'
