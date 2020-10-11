@@ -28,16 +28,16 @@
     </nav>
   </header>
 
-  <section id='cat-search'>
+  <section id='cat-search' style='display:none'>
     <form class="search-form" action="/categories/search" method="post">
-    //No datalist needed for categories. Users enter the category they're looking for
+    <!-- No datalist needed for categories. Users enter the category they're looking for -->
       <label for="search[terms]">Enter your search here: </label>
       <input type="text" name="search[terms]" placeholder="Your search here">
       <input type="submit" name="submit" value="Search">
     </form>
   </section>
 
-  <section id='exp-search'>
+  <section id='exp-search' style='display:none'>
     <form class="search-form" action="/experiences/search" method="post">
 
       <label for="search[scope]">Select search scope:</label>
@@ -72,6 +72,22 @@
     </p>
   </section>
 
+  <section id='new-experience' style='display:none'>
+    <form class="experience-form" action="/experiencs" method="post">
+      <label for="title">Title:</label>
+      <input id='new-title' type="text" name="title" placeholder='What happened?'>
+      <label for="description">Description:</label>
+      <input id='new-description' type="text" name="description" placeholder='Tell us about it!'>
+      <label for="date">Date (mm/dd/yyyy): </label>
+      <input id='new-date' type="text" name="date" placeholder='When did it hapen?'>
+      <label for="location">Location: </label>
+      <input id='new-location' type="text" name="location" placeholder='Where did it hapen?'>
+      <label for="coordinates">Coordinates (optional):</label>
+      <input id='new-coordinates' type="text" name="coordinates" placeholder='Wanna be specific?'>
+      <input type="submit" name="submit" value="Create">
+    </form>
+  </section>
+
   <section id='experience-field'>
     <h2>Here's what was just built: </h2>
     <div id="newest-grid">
@@ -87,4 +103,5 @@
   <footer>
     //add shares icons
   </footer>
+  <script type="text/javascript" href='./index.html'></script>
 </body>

@@ -37,7 +37,12 @@ def search
 end
 
 def newest
-  
+  results = Experience.order(created_at: :desc).limit(5)
+  render json: { message: "Results found", results: results}
+end
+
+def mostLiked
+  results = Experience.order(liked: :desc).limit(5)
 end
 
 private
