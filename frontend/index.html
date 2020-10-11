@@ -19,7 +19,7 @@
     </div>
     <nav id='header-nav'>
       <a href="#" id='refresh' class='nav-link'>Refresh</a>
-      <a href="#" id='new' class='nav-link'>New Experience</a>
+      <a href="#" id='new-exp' class='nav-link'>New Experience</a>
       <a href="#" id='love' class="nav-link">Love Experiences</a>
       <a href="#" id='travel' class="nav-link">Travel Experiences</a>
       <a href="#" id='birthdays' class="nav-link">Birthday Experiences</a>
@@ -33,7 +33,7 @@
     <!-- No datalist needed for categories. Users enter the category they're looking for -->
       <label for="search[terms]">Enter your search here: </label>
       <input type="text" name="search[terms]" placeholder="Your search here">
-      <input type="submit" name="submit" value="Search">
+      <input id='cat-submit' type="submit" name="submit" value="Search">
     </form>
   </section>
 
@@ -51,7 +51,7 @@
 
       <label for="search[terms]">Enter your search here: </label>
       <input type="text" name="search[terms]" placeholder="Your search here">
-      <input type="submit" name="submit" value="Search">
+      <input id='nav-submit' type="submit" name="submit" value="Search">
     </form>
   </section>
 
@@ -72,7 +72,7 @@
     </p>
   </section>
 
-  <section id='new-experience' style='display:none'>
+  <section id='new-exp' style='display:none'>
     <form class="experience-form" action="/experiencs" method="post">
       <label for="title">Title:</label>
       <input id='new-title' type="text" name="title" placeholder='What happened?'>
