@@ -17,16 +17,18 @@ end
 def create
 
   experience = Experience.new(exp_params)
+  experience.coordinates = 'None' if experience.coordinates === ""
+  binding.pry()
   #figure out if you need to put the categories in as an array of strings, or as category objects
   if experience.save
-    render json: {experience: experience, message: 'experience created'}
+    render json: experience
   else
     render json: { message: 'Invalid experience data', errors: experience.errors.full_messages()}
   end
 end
 
 def search
-  scope = params[:search][:scope].to_s + ' = ?' 
+  scope = params[:search][:scope].to_s + ' = ?'
   terms = params[:search][:terms]
   result = Experience.where(scope, terms)
   if !result.nil?

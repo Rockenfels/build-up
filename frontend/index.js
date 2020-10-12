@@ -54,12 +54,13 @@ function toggleNewExp(){
 
 function sendExp(){
   let formData = {
-    title: document.getElementById('new-title').textContent,
-    description: document.getElementById('new-description').textContent,
-    date: document.getElementById('new-date').textContent,
-    coordinates: document.getElementById('new-coordinates').textContent,
-    location: document.getElementyId('new-location').textContent
+    title: document.getElementById('new-title').value,
+    description: document.getElementById('new-description').value,
+    date: document.getElementById('new-date').value,
+    coordinates: document.getElementById('new-coordinates').value,
+    location: document.getElementById('new-location').value
   };
+  console.log(formData);
   let configObj = {
     method: "POST",
     headers: {
@@ -165,11 +166,6 @@ for(let i = 0; i<elements.length; i++) {
   };
 };
 
-function populateExp(){
-  newestExp();
-  mostLiked();
-}
-
 function getButtons(){
   //JS variables for all nav & search buttons
   return {
@@ -242,7 +238,8 @@ function handleButtons(e){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  populateExp();
+  newestExp();
+  mostLiked();
   document.addEventListener('click', (e) => {
     e.preventDefault();
     handleButtons(e);
