@@ -32,15 +32,33 @@ p{
   margin: auto;
   width: 80%;
   height: auto;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .75);
   border: 1px solid rgba(21, 27, 31, .6);
   border-radius: 5px;
+  text-shadow: .5px .25px rgba(21, 27, 31, .8);
+}
+
+.experience--container{
+  background-color: rgba(217, 216, 123, .5);
+  text-shadow: .5px .5px rgba(255, 255, 255, .5);
+  border: 2px solid rgba(21, 27, 31, .6);
+  width: 40%;
+  height: 40%;
+  margin: auto;
+  border-radius: 15px;
 }
 
 #description-field{
   padding-top: 50%;
   height: 110vh;
-  background-color: #22734F;
+  background-image:  url('../public/images/bark.jpg');
   color: #36454f
   text-shadow: 1px 2px black;
+}
+
+#experience-field{
+  background-image: url('../public/images/boards.jpg');
+  background-repeat: repeat-y;
+  margin: 0px;
+  padding-top: 15px;
 }
