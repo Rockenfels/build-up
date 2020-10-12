@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_170630) do
     t.string "date"
     t.string "photo"
     t.integer "likes", default: 0
-    t.string "coordinates"
+    t.string "coordinates", default: "None"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

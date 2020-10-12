@@ -26,23 +26,24 @@ def create
 end
 
 def search
-  scope = params[:search][:scope] + ' = ?'
+  scope = params[:search][:scope].to_s + ' = ?' 
   terms = params[:search][:terms]
   result = Experience.where(scope, terms)
   if !result.nil?
-    render json: { message: 'Results found!', result: result}
+    render json: result
   else
     render json: { message: 'No results found, please try different terms'}
   end
 end
 
 def newest
-  results = Experience.order(created_at: :desc).limit(5)
-  render json: { message: "Results found", results: results}
+  results = Experience.order(created_at: :desc).limit(5);
+  render json: results
 end
 
 def mostLiked
-  results = Experience.order(liked: :desc).limit(5)
+  results = Experience.order(liked: :desc).limit(5);
+  render json: results
 end
 
 private

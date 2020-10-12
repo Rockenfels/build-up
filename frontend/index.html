@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
     <title>Build-Up</title>
     <link rel="stylesheet" href="style.css">
     <link rel="favicon" href="/images/favicon.png">
@@ -10,6 +10,7 @@
     <meta name="description" content="A site built for positivity">
     <meta name="author" content="Ray Ockenfels">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -18,30 +19,30 @@
       <h1>Build-Up</h1>
     </div>
     <nav id='header-nav'>
-      <a href="#" id='refresh' class='nav-link'>Refresh</a>
-      <a href="#" id='new-exp' class='nav-link'>New Experience</a>
-      <a href="#" id='love' class="nav-link">Love Experiences</a>
-      <a href="#" id='travel' class="nav-link">Travel Experiences</a>
-      <a href="#" id='birthdays' class="nav-link">Birthday Experiences</a>
-      <a href="#" id='cat-search-btn' class="nav-search">Category Search</a>
-      <a href="#" ic='exp-search-btn' class="nav-search">Experience Search</a>
+      <button id='refresh' type="button" name="refresh"  class='nav-link'>Refresh</button>
+      <button id='new-exp' type="button" name="new-exp"  class='nav-link'>New Experience</button>
+      <button id='love' type="button" name="love"  class='nav-link'>Love</button>
+      <button id='travel' type="button" name="travel"  class='nav-link'>Travel</button>
+      <button id='birthdays' type="button" name="birthdays"  class='nav-link'>Birthdays</button>
+      <button id='cat-search-btn' type="button" name="cat-search-btn"  class='nav-link'>Category Search</button>
+      <button id='exp-search-btn' type="button" name="exp-search-btn"  class='nav-link'>Exprience Search</button>
     </nav>
   </header>
 
   <section id='cat-search' style='display:none'>
-    <form class="search-form" action="/categories/search" method="post">
+    <form className="search-form" action="/categories/search" method="post">
     <!-- No datalist needed for categories. Users enter the category they're looking for -->
-      <label for="search[terms]">Enter your search here: </label>
-      <input type="text" name="search[terms]" placeholder="Your search here">
+      <label for="search[terms]">Enter your category here: </label>
+      <input id='cat-terms' type="text" name="search[terms]" placeholder="Your search here">
       <input id='cat-submit' type="submit" name="submit" value="Search">
     </form>
   </section>
 
   <section id='exp-search' style='display:none'>
-    <form class="search-form" action="/experiences/search" method="post">
+    <form className="search-form" action="/experiences/search" method="post">
 
       <label for="search[scope]">Select search scope:</label>
-      <select name="search[scope]" id="exp-scope">
+      <select  name="search[scope]" id="exp-scope">
           <option value="title">Title</option>
           <option value="description">Description</option>
           <option value="location">Location</option>
@@ -50,30 +51,13 @@
       </select>
 
       <label for="search[terms]">Enter your search here: </label>
-      <input type="text" name="search[terms]" placeholder="Your search here">
-      <input id='nav-submit' type="submit" name="submit" value="Search">
+      <input id="exp-terms" type="text" name="search[terms]" placeholder="Your search here">
+      <input id='exp-submit' type="submit" name="submit" value="Search">
     </form>
   </section>
 
-  <section id='description field'>
-    <h2>Here's what it is:</h2>
-    <p class='description--text'>
-      Just like how adventurers leave stack of stones behind them on their travles
-      to let thos who come after them know they were there, Build-Up was
-      creatd to do the same thing in the midst of a global pandemic.
-    </p>
-    <p class="description--text">
-      Build-Up is designed to be a place online wher epeople can share the positive
-      moments & experiences that are happening in their lives, no matter where you are in the world
-      or what's happening in it.
-    </p>
-    <p class="description-text">
-      Build youself up. Build eachother up. Stay positive.
-    </p>
-  </section>
-
-  <section id='new-exp' style='display:none'>
-    <form class="experience-form" action="/experiencs" method="post">
+  <section id='exp-form' style='display:none'>
+    <form className="experience-form" action="/experiencs" method="post">
       <label for="title">Title:</label>
       <input id='new-title' type="text" name="title" placeholder='What happened?'>
       <label for="description">Description:</label>
@@ -84,8 +68,34 @@
       <input id='new-location' type="text" name="location" placeholder='Where did it hapen?'>
       <label for="coordinates">Coordinates (optional):</label>
       <input id='new-coordinates' type="text" name="coordinates" placeholder='Wanna be specific?'>
-      <input type="submit" name="submit" value="Create">
+      <input id='new-submit' type="submit" name="submit" value="Create">
     </form>
+  </section>
+
+  <section id='search-results' style='display:none'>
+    <h2>Here's your search results</h2>
+    <div id='results-grid'>
+
+    </div>
+  </section>
+
+  <section id='description-field'>
+    <div class="tile" style='z-index: 2'>
+      <h2>Here's what it is:</h2>
+      <p className='description--text'>
+        Just like how adventurers leave stack of stones behind them on their travles
+        to let thos who come after them know they were there, Build-Up was
+        creatd to do the same thing in the midst of a global pandemic.
+      </p>
+      <p className="description--text">
+        Build-Up is designed to be a place online wher epeople can share the positive
+        moments & experiences that are happening in their lives, no matter where you are in the world
+        or what's happening in it.
+      </p>
+      <p className="description-text">
+        Build youself up. Build eachother up. Stay positive.
+      </p>
+  </div>
   </section>
 
   <section id='experience-field'>
@@ -103,5 +113,4 @@
   <footer>
     //add shares icons
   </footer>
-  <script type="text/javascript" href='./index.html'></script>
 </body>

@@ -26,12 +26,11 @@ def create
 end
 
 def search
-  terms = params[:search][:terms]
-  category = Category.where('name = ?', terms)
-  results = category[0].experiences if !category.nil?
+  terms = params[:terms]
+  results = Experience.where('category = ?', terms)
   binding.pry()
-  if !category.empty?
-    render json: { message: 'Results found!', result: results}
+  if !results.empty?
+    render json: results;
   else
     render json: { message: 'No results found, please try different terms'}
   end
