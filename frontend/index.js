@@ -1,3 +1,8 @@
+function getExps(){
+  fetch('http://localhost:3000/experiences')
+    .then(response => response.json())
+      .then(data => populateGrid('experience', data));
+}
 
 function newestExp(){
   fetch('http://localhost:3000/newest')
@@ -51,6 +56,7 @@ function removeAllChildNodes(parent) {
 
 function populateGrid(grid, results){
   let elements  = results
+  console.log(elements);
   let gridName = `${grid}-grid`
   let targetGrid = document.getElementById(gridName);
   removeAllChildNodes(targetGrid);
@@ -84,12 +90,17 @@ for(let i = 0; i<elements.length; i++) {
     coordinates.textContent = elements[i]['coordinates'];
     coordinates.className = 'exp--coordinates';
 
+    let likeButton = document.createElement('img');
+    likeButton.src = '../public/images/like-icon.jpeg';
+    likeButton.class = 'like-button'
+
     container.appendChild(photo);
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(date);
     container.appendChild(location);
     container.appendChild(coordinates);
+    container.appendChild(likeButton);
 
     targetGrid.appendChild(container);
   };
@@ -128,6 +139,7 @@ function handleButtons(e){
 document.addEventListener("DOMContentLoaded", () => {
   newestExp();
   mostLiked();
+  getExps();
   document.addEventListener('click', (e) => {
     e.preventDefault();
     handleButtons(e);
