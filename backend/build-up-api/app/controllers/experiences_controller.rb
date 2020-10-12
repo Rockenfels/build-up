@@ -27,17 +27,6 @@ def create
   end
 end
 
-def search
-  scope = params[:search][:scope].to_s + ' = ?'
-  terms = params[:search][:terms]
-  result = Experience.where(scope, terms)
-  if !result.nil?
-    render json: result
-  else
-    render json: { message: 'No results found, please try different terms'}
-  end
-end
-
 def newest
   results = Experience.order(created_at: :desc).limit(5);
   render json: results

@@ -12,36 +12,6 @@ function mostLiked(){
     .then(data => populateGrid('liked', data));
 }
 
-function toggleExpSearch(){
-  let expForm = document.getElementById('exp-search');
-   if(expForm.style.display === 'none'){
-     expForm.style.display = 'block';
-   }
-   else {
-     expForm.style.display = 'none';
-   }
-}
-
-function toggleCatSearch(){
-  let catForm = document.getElementById('cat-search');
-  if(catForm.style.display === 'none'){
-    catForm.style.display = 'block';
-  }
-  else {
-    catForm.style.display = 'none';
-  }
-}
-
-function toggleResults(){
-  let results = document.getElementById('search-results');
-  if(results.style.display === 'none') {
-    results.style.display = 'block';
-  }
-  else {
-    results.style.display = 'none';
-  }
-}
-
 function toggleNewExp(){
   let newExp = document.getElementById('exp-form');
   if(newExp.style.display === 'none'){
@@ -71,47 +41,6 @@ function sendExp(){
   };
 
   fetch("http://localhost:3000/experiences", configObj).then(response => response.json()).then(json => console.log(json));
-}
-
-function catSearch(terms){
-  document.getElementById('search-results').style.display = 'block';
-
-  let formData = {
-    terms: terms
-    };
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  };
-
-  fetch("http://localhost:3000/categories_search", configObj)
-    .then(response => response.json())
-      .then(data => populateGrid('results', data));
-}
-
-function expSearch(scope, terms){
-  let formData = {
-    search: {
-      scope: scope,
-      terms: terms
-    }
-  };
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  };
-
-  fetch("http://localhost:3000/experiences_search", configObj).then(response => response.json()).then(json => console.log(json));
-
-  document.getElementById('search-results').style.display = 'block';
 }
 
 function removeAllChildNodes(parent) {
@@ -171,14 +100,6 @@ function getButtons(){
   return {
     refresh: document.getElementById('refresh'),
     newExp: document.getElementById('new-exp'),
-    love: document.getElementById('love'),
-    travel: document.getElementById('travel'),
-    birthdays: document.getElementById('birthdays'),
-    catSearchBtn: document.getElementById('cat-search-btn'),
-    expSearchBtn: document.getElementById('exp-search-btn'),
-    catSubmit: document.getElementById('cat-submit'),
-    expSubmit: document.getElementById('exp-submit'),
-    newSubmit: document.getElementById('new-submit')
   };
 }
 
@@ -196,39 +117,6 @@ function handleButtons(e){
         case buttons.newExp:
             toggleNewExp();
             break;
-
-        case buttons.love:
-          catSearch('Love');
-          break;
-
-        case buttons.travel:
-          catSearch('Travel');
-          break;
-
-        case buttons.birthdays:
-          catSearch('Birthdays');
-          break;
-
-        case buttons.catSearchBtn:
-          toggleCatSearch();
-          break;
-
-        case buttons.expSearchBtn:
-          toggleExpSearch();
-          break;
-
-        case buttons.expSubmit:
-          scope = document.getElementById('exp-scope');
-          scope = scope.options[ scope.selectedIndex ].value
-          terms = document.getElementById('exp-terms').textContent;
-          console.log(scope);
-          results = expSearch(scope, terms);
-          break;
-
-        case buttons.catSubmit:
-          terms = document.getElementById('cat-terms').textContent;
-          catSearch(terms);
-          break;
 
         case buttons.newSubmit:
           sendExp();

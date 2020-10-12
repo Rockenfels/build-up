@@ -25,17 +25,6 @@ def create
   end
 end
 
-def search
-  terms = params[:terms]
-  results = Experience.where('category = ?', terms)
-  binding.pry()
-  if !results.empty?
-    render json: results;
-  else
-    render json: { message: 'No results found, please try different terms'}
-  end
-end
-
 #strong params for categories
 private
   def cat_params
