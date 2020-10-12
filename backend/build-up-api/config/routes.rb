@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :categories, only: [:show, :index, :create]
   resources :experiences, only: [:show, :index, :create]
-  post  '/experiences_search', to: 'experiences#search'
   get '/newest', to: 'experiences#newest'
   get  '/most_liked', to: 'experiencs#mostLiked'
   post  '/categories_search', to: 'categories#search'

@@ -12,16 +12,6 @@ function mostLiked(){
     .then(data => populateGrid('liked', data));
 }
 
-function toggleExpSearch(){
-  let expForm = document.getElementById('exp-search');
-   if(expForm.style.display === 'none'){
-     expForm.style.display = 'block';
-   }
-   else {
-     expForm.style.display = 'none';
-   }
-}
-
 function toggleCatSearch(){
   let catForm = document.getElementById('cat-search');
   if(catForm.style.display === 'none'){
@@ -74,8 +64,6 @@ function sendExp(){
 }
 
 function catSearch(terms){
-  document.getElementById('search-results').style.display = 'block';
-
   let formData = {
     terms: terms
     };
@@ -90,28 +78,10 @@ function catSearch(terms){
 
   fetch("http://localhost:3000/categories_search", configObj)
     .then(response => response.json())
-      .then(data => populateGrid('results', data));
-}
-
-function expSearch(scope, terms){
-  let formData = {
-    search: {
-      scope: scope,
-      terms: terms
-    }
-  };
-  let configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(formData)
-  };
-
-  fetch("http://localhost:3000/experiences_search", configObj).then(response => response.json()).then(json => console.log(json));
-
-  document.getElementById('search-results').style.display = 'block';
+      .then(data => {
+        document.getElementById('search-results').style.display = 'block';
+        populateGrid('results', data);
+      });
 }
 
 function removeAllChildNodes(parent) {
