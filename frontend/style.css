@@ -17,25 +17,30 @@ header{
   color: #FFFFFF;
   border-bottom: 2px solid rgba(21, 27, 31, .4);
   text-shadow: 1px 2px black;
-
+  background-image: rgba(21, 27, 31, .4);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-h2{
-  font-size: 2em;
+h3{
+  font-size: 1.25em;
 }
 
 p{
   font-size: 1.5em;
 }
 
-.tile{
+.text-field{
   margin: auto;
   width: 80%;
   height: auto;
   background-color: rgba(255, 255, 255, .75);
   border: 1px solid rgba(21, 27, 31, .6);
-  border-radius: 5px;
+  border-radius: 15px;
   text-shadow: .5px .25px rgba(21, 27, 31, .8);
+  box-shadow: 1px 2px black;
+  padding: 10px;
 }
 
 .experience--container{
@@ -46,17 +51,30 @@ p{
   height: 40%;
   margin: auto;
   border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 1px 2px rgba(21, 27, 31, .8);
 }
 
-#description-field{
-  padding-top: 50%;
-  height: 110vh;
+#description--field{
+  height: 200vh;
   background-image:  url('../public/images/bark.jpg');
   color: #36454f
   text-shadow: 1px 2px black;
+  border-bottom: 2px solid black;
 }
 
-#experience-field{
+#welcome--image{
+  width: 80%;
+  height: auto;
+  margin-top: 25vh;
+  border-radius: 15px;
+}
+
+#welcome--text{
+  font-size: 2em;
+}
+
+#experience--field{
   background-image: url('../public/images/boards.jpg');
   background-repeat: repeat-y;
   margin: 0px;

@@ -59,35 +59,51 @@ for(let i = 0; i<elements.length; i++) {
     let container = document.createElement('div');
     container.className = 'experience--container'
 
+
     let photo = document.createElement('img');
     photo.href = elements[i]['photo'];
     photo.className = 'exp--photo';
 
+    let titleLabel = document.createElement('label');
+    titleLabel.textContent = 'Title: '
     let title = document.createElement('h3');
     title.textContent = elements[i]['title'];
     title.className = 'exp--title';
 
+    let descriptionLabel = document.createElement('label');
+    descriptionLabel.textContent = 'Description: '
     let description = document.createElement('h2');
     description.textContent = elements[i]['description'];
     description.className = 'exp--description';
 
+    let dateLabel = document.createElement('label');
+    dateLabel.textContent = 'Date: '
     let date = document.createElement('h3');
     date.textContent = elements[i]['date'];
     date.className = 'exp--date';
 
+    let locationLabel = document.createElement('h3');
+    locationLabel.textContent = 'Location: '
     let location =  document.createElement('h3');
     location.textContent = elements[i]['location'];
     location.classNameName = 'exp--location';
 
+    let coordinatesLabel = document.createElement('label');
+    coordinatesLabel.textContent = 'Coordinates: '
     let coordinates = document.createElement('h3');
     coordinates.textContent = elements[i]['coordinates'];
     coordinates.className = 'exp--coordinates';
 
     container.appendChild(photo);
+    container.appendChild(titleLabel);
     container.appendChild(title);
+    container.appendChild(descriptionLabel);
     container.appendChild(description);
+    container.appendChild(dateLabel);
     container.appendChild(date);
+    container.appendChild(locationLabel);
     container.appendChild(location);
+    container.appendChild(coordinatesLabel);
     container.appendChild(coordinates);
 
     targetGrid.appendChild(container);
