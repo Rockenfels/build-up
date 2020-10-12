@@ -10,13 +10,6 @@ function newestExp(){
       .then(data => populateGrid('newest', data));
 }
 
-function mostLiked(){
-  //pulls results from API
-  fetch("http://localhost:3000/newest")
-  .then(response => response.json())
-    .then(data => populateGrid('liked', data));
-}
-
 function toggleNewExp(){
   let newExp = document.getElementById('exp-form');
   if(newExp.style.display === 'none'){
@@ -90,17 +83,12 @@ for(let i = 0; i<elements.length; i++) {
     coordinates.textContent = elements[i]['coordinates'];
     coordinates.className = 'exp--coordinates';
 
-    let likeButton = document.createElement('img');
-    likeButton.src = '../public/images/like-icon.jpeg';
-    likeButton.class = 'like-button'
-
     container.appendChild(photo);
     container.appendChild(title);
     container.appendChild(description);
     container.appendChild(date);
     container.appendChild(location);
     container.appendChild(coordinates);
-    container.appendChild(likeButton);
 
     targetGrid.appendChild(container);
   };
@@ -138,7 +126,6 @@ function handleButtons(e){
 
 document.addEventListener("DOMContentLoaded", () => {
   newestExp();
-  mostLiked();
   getExps();
   document.addEventListener('click', (e) => {
     e.preventDefault();
