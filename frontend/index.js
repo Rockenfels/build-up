@@ -1,3 +1,8 @@
+function getExps(){
+  fetch('http://localhost:3000/experiences')
+    .then(response => response.json())
+      .then(data => populateGrid('experience', data));
+}
 
 function newestExp(){
   fetch('http://localhost:3000/newest')
@@ -16,8 +21,7 @@ function allCats(){
   fetch('http://localhost:3000/categories')
     .then(response => response.json())
       .then(data => {
-        populateCats('cat-options', data);
-        populateCats('cat-search-options', data);
+        populateCats(data);
       });
 }
 
@@ -172,9 +176,9 @@ for(let i = 0; i<elements.length; i++) {
   };
 }
 
-function populateCats(target, results){
+function populateCats(results){
   let elements  = results
-  let targetGrid = document.getElementById(target);
+  let targetGrid = document.getElementById('cat-options');
   removeAllChildNodes(targetGrid);
 
   //make a new tile for the exp and then append it to the new-grid
@@ -192,11 +196,7 @@ function getButtons(){
   return {
     refresh: document.getElementById('refresh'),
     newExp: document.getElementById('new-exp'),
-    love: document.getElementById('love'),
-    travel: document.getElementById('travel'),
-    birthdays: document.getElementById('birthdays'),
     catSearchBtn: document.getElementById('cat-search-btn'),
-    catSubmit: document.getElementById('cat-submit'),
     newExpSubmit: document.getElementById('new-exp-submit'),
     newCatSubmit: document.getElementById('new-cat-submit'),
     newCat: document.getElementById('new-cat')
@@ -217,28 +217,6 @@ function handleButtons(e){
         case buttons.newExp:
             toggleNewExp();
             break;
-
-        case buttons.love:
-          catSearch('Love');
-          break;
-
-        case buttons.travel:
-          catSearch('Travel');
-          break;
-
-        case buttons.birthdays:
-          catSearch('Birthdays');
-          break;
-
-        case buttons.catSearchBtn:
-          toggleCatSearch();
-          break;
-
-        case buttons.catSubmit:
-          terms = document.getElementById('cat-search-options').options[ this.selectedIndex ].value;
-          console.log(terms);
-          catSearch(terms);
-          break;
 
         case buttons.newExpSubmit:
           sendExp();
@@ -261,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
   newestExp();
   mostLiked();
   allCats();
+  getExps();
 
   document.addEventListener('click', (e) => {
     e.preventDefault();
