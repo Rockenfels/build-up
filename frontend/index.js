@@ -73,7 +73,6 @@ function sendExp(){
     coordinates: document.getElementById('new-coordinates').value,
     location: document.getElementById('new-location').value
   };
-  console.log(formData);
   let configObj = {
     method: "POST",
     headers: {
@@ -84,7 +83,14 @@ function sendExp(){
   };
 
   fetch("http://localhost:3000/experiences", configObj).then(response => response.json()).then(json => console.log(json));
+
+  document.getElementById('new-title').value = "";
+  document.getElementById('new-description').value = "";
+  document.getElementById('new-date').value= "";
+  document.getElementById('new-coordinates').value= "";
+  location: document.getElementById('new-location').value= "";
 }
+
 
 function sendCat(){
   let formData = {
@@ -212,9 +218,6 @@ function getButtons(){
 
 function handleButtons(e){
     buttons = getButtons();
-    let scope = "";
-    let terms = "";
-    let results;
   //switch statement for navigation
       switch(e.target){
         case buttons.refresh:
@@ -229,6 +232,7 @@ function handleButtons(e){
           sendExp();
           window.alert('Experience sent to server. Check your newest experiences section to make sure it worked!');
           newestExp();
+          break;
 
         case buttons.newCatSubmit:
           sendCat();
