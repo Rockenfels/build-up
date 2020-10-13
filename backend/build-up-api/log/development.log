@@ -8234,3 +8234,62 @@ Processing by ExperiencesController#newest as */*
 Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 1752)
 
 
+Started GET "/newest" for ::1 at 2020-10-13 00:05:54 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/categories" for ::1 at 2020-10-13 00:05:54 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 2007)
+
+
+Processing by ExperiencesController#newest as */*
+Started GET "/experiences" for ::1 at 2020-10-13 00:05:54 -0600
+Processing by ExperiencesController#index as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:32:in `newest'
+Completed 200 OK in 116ms (Views: 114.8ms | ActiveRecord: 0.4ms | Allocations: 3179)
+
+
+  ↳ app/controllers/experiences_controller.rb:5:in `index'
+Completed 200 OK in 113ms (Views: 112.2ms | ActiveRecord: 0.3ms | Allocations: 3377)
+
+
+Started GET "/newest" for ::1 at 2020-10-13 00:05:54 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:32:in `newest'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 1777)
+
+
+Started GET "/newest" for ::1 at 2020-10-13 00:06:01 -0600
+Started GET "/categories" for ::1 at 2020-10-13 00:06:01 -0600
+Started GET "/experiences" for ::1 at 2020-10-13 00:06:01 -0600
+Processing by ExperiencesController#newest as */*
+Processing by CategoriesController#index as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/experiences_controller.rb:32:in `newest'
+Processing by ExperiencesController#index as */*
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.3ms | Allocations: 3707)
+
+
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences"[0m
+  ↳ app/controllers/experiences_controller.rb:5:in `index'
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 1823)
+
+
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.3ms | Allocations: 6532)
+
+
+Started GET "/newest" for ::1 at 2020-10-13 00:06:01 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:32:in `newest'
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 1752)
+
+

@@ -191,6 +191,13 @@ for(let i = 0; i<elements.length; i++) {
   };
 }
 
+function refreshExp(){
+  newestExp();
+  mostLiked();
+  allCats();
+  getExps();
+}
+
 function getButtons(){
   //JS variables for all nav & search buttons
   return {
@@ -211,7 +218,7 @@ function handleButtons(e){
   //switch statement for navigation
       switch(e.target){
         case buttons.refresh:
-            populateExp();
+            refreshExp();
             break;
 
         case buttons.newExp:
@@ -236,10 +243,7 @@ function handleButtons(e){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  newestExp();
-  mostLiked();
-  allCats();
-  getExps();
+  refreshExp();
 
   document.addEventListener('click', (e) => {
     e.preventDefault();
