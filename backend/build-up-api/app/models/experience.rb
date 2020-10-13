@@ -1,5 +1,5 @@
 class Experience < ApplicationRecord
-  has_and_belongs_to_many :categories
+  belongs_to :category
   validates :description, :location, :date, presence: true
   validates :title, uniqueness:true
   validates :coordinates, presence:true

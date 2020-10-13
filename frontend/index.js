@@ -12,6 +12,15 @@ function mostLiked(){
     .then(data => populateGrid('liked', data));
 }
 
+function allCats(){
+  fetch('http://localhost:3000/categories')
+    .then(response => response.json())
+      .then(data => {
+        populateCats('cat-options', data);
+        populateCats('cat-search-options', data);
+      });
+}
+
 function toggleCatSearch(){
   let catForm = document.getElementById('cat-search');
   if(catForm.style.display === 'none'){
@@ -42,6 +51,16 @@ function toggleNewExp(){
   }
 }
 
+function toggleNewCat(){
+  let newCat = document.getElementById('cat-form');
+  if(newCat.style.display === 'none'){
+    newCat.style.display = 'block';
+  }
+  else {
+    newCat.style.display = 'none';
+  }
+}
+
 function sendExp(){
   let formData = {
     title: document.getElementById('new-title').value,
@@ -61,6 +80,23 @@ function sendExp(){
   };
 
   fetch("http://localhost:3000/experiences", configObj).then(response => response.json()).then(json => console.log(json));
+}
+
+function sendCat(){
+  let formData = {
+    name: document.getElementById('new-name').value
+  };
+  console.log(formData);
+  let configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(formData)
+  };
+
+  fetch("http://localhost:3000/categories", configObj).then(response => response.json()).then(json => console.log(json));
 }
 
 function catSearch(terms){
@@ -134,7 +170,22 @@ for(let i = 0; i<elements.length; i++) {
 
     targetGrid.appendChild(container);
   };
-};
+}
+
+function populateCats(target, results){
+  let elements  = results
+  let targetGrid = document.getElementById(target);
+  removeAllChildNodes(targetGrid);
+
+  //make a new tile for the exp and then append it to the new-grid
+for(let i = 0; i<elements.length; i++) {
+    let option = document.createElement('option');
+    option.value = elements[i].name;
+    option.textContent = elements[i].name;
+
+    targetGrid.appendChild(option);
+  };
+}
 
 function getButtons(){
   //JS variables for all nav & search buttons
@@ -145,10 +196,10 @@ function getButtons(){
     travel: document.getElementById('travel'),
     birthdays: document.getElementById('birthdays'),
     catSearchBtn: document.getElementById('cat-search-btn'),
-    expSearchBtn: document.getElementById('exp-search-btn'),
     catSubmit: document.getElementById('cat-submit'),
-    expSubmit: document.getElementById('exp-submit'),
-    newSubmit: document.getElementById('new-submit')
+    newExpSubmit: document.getElementById('new-exp-submit'),
+    newCatSubmit: document.getElementById('new-cat-submit'),
+    newCat: document.getElementById('new-cat')
   };
 }
 
@@ -183,33 +234,34 @@ function handleButtons(e){
           toggleCatSearch();
           break;
 
-        case buttons.expSearchBtn:
-          toggleExpSearch();
-          break;
-
-        case buttons.expSubmit:
-          scope = document.getElementById('exp-scope');
-          scope = scope.options[ scope.selectedIndex ].value
-          terms = document.getElementById('exp-terms').textContent;
-          console.log(scope);
-          results = expSearch(scope, terms);
-          break;
-
         case buttons.catSubmit:
-          terms = document.getElementById('cat-terms').textContent;
+          terms = document.getElementById('cat-search-options').options[ this.selectedIndex ].value;
+          console.log(terms);
           catSearch(terms);
           break;
 
-        case buttons.newSubmit:
+        case buttons.newExpSubmit:
           sendExp();
           window.alert('Experience sent to server. Check your newest experiences section to make sure it worked!');
           newestExp();
+
+        case buttons.newCatSubmit:
+          sendCat();
+          window.alert('Category sent to server. Check the category dropdown when creating an experience to make sure it worked!');
+          allCats();
+          break;
+
+        case buttons.newCat:
+          toggleNewCat();
+          break;
     };
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   newestExp();
   mostLiked();
+  allCats();
+
   document.addEventListener('click', (e) => {
     e.preventDefault();
     handleButtons(e);

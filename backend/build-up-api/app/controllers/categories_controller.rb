@@ -26,8 +26,9 @@ def create
 end
 
 def search
-  terms = params[:terms]
-  results = Experience.where('category = ?', terms)
+  category = Category.find_by(name: params[:terms])
+  results = category.experiences;
+
   binding.pry()
   if !results.empty?
     render json: results;

@@ -10,19 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_170630) do
+ActiveRecord::Schema.define(version: 2020_10_06_184705) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "categories_experiences", force: :cascade do |t|
-    t.integer "experience_id"
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_categories_experiences_on_category_id"
-    t.index ["experience_id"], name: "index_categories_experiences_on_experience_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -33,8 +26,10 @@ ActiveRecord::Schema.define(version: 2020_10_07_170630) do
     t.string "photo"
     t.integer "likes", default: 0
     t.string "coordinates", default: "None"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_experiences_on_category_id"
   end
 
 end

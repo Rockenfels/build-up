@@ -25,13 +25,15 @@
       <button id='travel' type="button" name="travel"  class='nav-link'>Travel</button>
       <button id='birthdays' type="button" name="birthdays"  class='nav-link'>Birthdays</button>
       <button id='cat-search-btn' type="button" name="cat-search-btn"  class='nav-link'>Category Search</button>
+      <button id='new-cat' type="button" name="button">New Category</button>
     </nav>
   </header>
 
   <section id='cat-search' style='display:none'>
     <form className="search-form" action="/categories/search" method="post">
-      <label for="search[terms]">Enter your category here: </label>
-      <input id='cat-terms' type="text" name="search[terms]" placeholder="Your search here">
+      <label for="search[terms]">Select your category here: </label>
+      <select id='cat-search-options' name="new-category">
+      </select>
       <input id='cat-submit' type="submit" name="submit" value="Search">
     </form>
   </section>
@@ -48,7 +50,18 @@
       <input id='new-location' type="text" name="location" placeholder='Where did it hapen?'>
       <label for="coordinates">Coordinates (optional):</label>
       <input id='new-coordinates' type="text" name="coordinates" placeholder='Wanna be specific?'>
-      <input id='new-submit' type="submit" name="submit" value="Create">
+      <label for="new-category">Category:</label>
+      <select id='cat-options' name="new-category">
+      </select>
+      <input id='new-exp-submit' type="submit" name="submit" value="Create">
+    </form>
+  </section>
+
+  <section id='cat-form' style='display:none'>
+    <form className="category-form" action="/categories" method="post">
+      <label for="name">Name:</label>
+      <input id='new-name' type="text" name="name" placeholder="What's your category?">
+      <input id='new-cat-submit' type="submit" name="submit" value="Create">
     </form>
   </section>
 

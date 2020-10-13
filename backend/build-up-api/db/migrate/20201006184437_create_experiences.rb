@@ -8,6 +8,7 @@ class CreateExperiences < ActiveRecord::Migration[6.0]
       t.string :photo
       t.integer :likes, default: 0
       t.string :coordinates, default: 'None'
+      t.belongs_to :category
       t.timestamps
     end
   end

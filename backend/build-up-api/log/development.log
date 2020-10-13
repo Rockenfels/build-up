@@ -6193,3 +6193,719 @@ Processing by ExperiencesController#newest as */*
 Completed 200 OK in 32ms (Views: 21.4ms | ActiveRecord: 1.4ms | Allocations: 9115)
 
 
+Started GET "/newest" for ::1 at 2020-10-12 11:51:39 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (10.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 41ms (Views: 26.0ms | ActiveRecord: 1.5ms | Allocations: 10392)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 11:51:39 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 1751)
+
+
+Started POST "/categories_search" for ::1 at 2020-10-12 11:51:43 -0600
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Love", "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 1.3ms | Allocations: 63016)
+
+
+  
+NameError (undefined local variable or method `cat' for #<CategoriesController:0x00007f8ac223cdb0>
+Did you mean?  catch):
+  
+app/controllers/categories_controller.rb:30:in `search'
+Started POST "/categories_search" for ::1 at 2020-10-12 13:49:46 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Love", "category"=>{}}
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 3.3ms | Allocations: 60640)
+
+
+  
+NameError (undefined local variable or method `cat' for #<CategoriesController:0x00007f8ac5188f10>
+Did you mean?  catch):
+  
+app/controllers/categories_controller.rb:30:in `search'
+Started POST "/categories_search" for ::1 at 2020-10-12 13:50:33 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Love", "category"=>{}}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+  [1m[36mExperience Load (9.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" INNER JOIN "categories_experiences" ON "experiences"."id" = "categories_experiences"."experience_id" WHERE "categories_experiences"."category_id" = ?[0m  [["category_id", 10]]
+  ↳ app/controllers/categories_controller.rb:32:in `search'
+Completed 200 OK in 56239ms (Views: 0.5ms | ActiveRecord: 13.3ms | Allocations: 26819)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateExperiences (20201006184437)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "experiences" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "location" varchar, "date" varchar, "photo" varchar, "likes" integer DEFAULT 0, "coordinates" varchar DEFAULT 'None', "category_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_experiences_on_category_id" ON "experiences" ("category_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201006184437"]]
+  [1m[35m (15.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCategories (20201006184705)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201006184705"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-12 19:53:18.804166"], ["updated_at", "2020-10-12 19:53:18.804166"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Birthdays"], ["created_at", "2020-10-12 19:53:26.156991"], ["updated_at", "2020-10-12 19:53:26.156991"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Weddings"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Weddings"], ["created_at", "2020-10-12 19:53:26.169051"], ["updated_at", "2020-10-12 19:53:26.169051"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Graduation"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Graduation"], ["created_at", "2020-10-12 19:53:26.180676"], ["updated_at", "2020-10-12 19:53:26.180676"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Holidays"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Holidays"], ["created_at", "2020-10-12 19:53:26.196812"], ["updated_at", "2020-10-12 19:53:26.196812"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Vacation"], ["LIMIT", 1]]
+  [1m[36mCategory Create (2.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Vacation"], ["created_at", "2020-10-12 19:53:26.252108"], ["updated_at", "2020-10-12 19:53:26.252108"]]
+  [1m[35m (15.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Travel"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Travel"], ["created_at", "2020-10-12 19:53:26.304169"], ["updated_at", "2020-10-12 19:53:26.304169"]]
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Dogs"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dogs"], ["created_at", "2020-10-12 19:53:26.367472"], ["updated_at", "2020-10-12 19:53:26.367472"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Cats"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cats"], ["created_at", "2020-10-12 19:53:26.391296"], ["updated_at", "2020-10-12 19:53:26.391296"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Treat Yourself"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Treat Yourself"], ["created_at", "2020-10-12 19:53:26.407411"], ["updated_at", "2020-10-12 19:53:26.407411"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Love"], ["created_at", "2020-10-12 19:53:26.420018"], ["updated_at", "2020-10-12 19:53:26.420018"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Tax Day"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Tax Day"], ["created_at", "2020-10-12 19:53:26.438103"], ["updated_at", "2020-10-12 19:53:26.438103"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Adventure"], ["LIMIT", 1]]
+  [1m[36mCategory Create (6.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Adventure"], ["created_at", "2020-10-12 19:53:26.470058"], ["updated_at", "2020-10-12 19:53:26.470058"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Weddings"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Graduation"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Holidays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Vacation"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Travel"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Dogs"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Cats"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Treat Yourself"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Tax Day"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Adventure"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Weddings"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Graduation"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Holidays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Vacation"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Travel"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Dogs"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Cats"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Treat Yourself"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Tax Day"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Adventure"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "My birthday"], ["LIMIT", 1]]
+  [1m[36mExperience Create (2.9ms)[0m  [1m[32mINSERT INTO "experiences" ("title", "description", "location", "date", "coordinates", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "My birthday"], ["description", "Lots of cake and ice cream!"], ["location", "Bethel, AK"], ["date", "01/26/2020"], ["coordinates", "60.791047 -161.775173"], ["created_at", "2020-10-12 20:04:08.464588"], ["updated_at", "2020-10-12 20:04:08.464588"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."experience_id" = ? LIMIT ?[0m  [["experience_id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Weddings"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Graduation"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Holidays"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Vacation"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Travel"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Dogs"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Cats"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Treat Yourself"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Love"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Tax Day"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Adventure"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "My birthday"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "We tied the knot"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "I love these dogs"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "Letchworth Craft Festival"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "Love is like a bike ride..."], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExperience Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."title" = ? LIMIT ?[0m  [["title", "Date adventure in the botanical gardens"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."category_id" = ? LIMIT ?[0m  [["category_id", 1], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."category_id" = ? LIMIT ?[0m  [["category_id", 1], ["LIMIT", 11]]
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" WHERE "experiences"."category_id" = ?[0m  [["category_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/newest" for ::1 at 2020-10-12 21:33:05 -0600
+Started GET "/categories" for ::1 at 2020-10-12 21:33:05 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (2.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Processing by ExperiencesController#newest as */*
+Completed 200 OK in 69ms (Views: 32.5ms | ActiveRecord: 2.4ms | Allocations: 5402)
+
+
+  [1m[36mExperience Load (1.0ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 54ms (Views: 21.6ms | ActiveRecord: 1.0ms | Allocations: 9849)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:33:06 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 1036)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 21:38:28 -0600
+Started GET "/newest" for ::1 at 2020-10-12 21:38:28 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (1.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 120ms (Views: 50.2ms | ActiveRecord: 3.0ms | Allocations: 9630)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (134.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 217ms (Views: 13.0ms | ActiveRecord: 135.3ms | Allocations: 5464)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:38:28 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1072)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:38:39 -0600
+Started GET "/categories" for ::1 at 2020-10-12 21:38:39 -0600
+Processing by ExperiencesController#newest as */*
+Processing by CategoriesController#index as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 1834)
+
+
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms | Allocations: 2870)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:38:39 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 124ms (Views: 123.5ms | ActiveRecord: 0.4ms | Allocations: 1028)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 21:45:31 -0600
+Started GET "/newest" for ::1 at 2020-10-12 21:45:31 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (35.7ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 52ms (Views: 13.3ms | ActiveRecord: 35.7ms | Allocations: 1945)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.6ms | Allocations: 2039)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:45:31 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 1055)
+
+
+Started POST "/experiences" for ::1 at 2020-10-12 21:46:26 -0600
+Processing by ExperiencesController#create as JSON
+  Parameters: {"title"=>"I made a website", "description"=>"You're looking at it", "date"=>"10/10/2020", "coordinates"=>"", "location"=>"America", "experience"=>{"title"=>"I made a website", "description"=>"You're looking at it", "location"=>"America", "date"=>"10/10/2020", "coordinates"=>""}}
+Started GET "/newest" for ::1 at 2020-10-12 21:46:29 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 1027)
+
+
+Started POST "/categories" for ::1 at 2020-10-12 21:46:29 -0600
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"", "category"=>{"name"=>""}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Create (27.1ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", ""], ["created_at", "2020-10-13 03:46:29.168729"], ["updated_at", "2020-10-13 03:46:29.168729"]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+Completed 200 OK in 105ms (Views: 0.7ms | ActiveRecord: 29.0ms | Allocations: 4104)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 21:50:15 -0600
+Started GET "/newest" for ::1 at 2020-10-12 21:50:15 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Processing by ExperiencesController#newest as */*
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.7ms | Allocations: 2287)
+
+
+  [1m[36mExperience Load (0.6ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.6ms | Allocations: 1213)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:50:16 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 1027)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:50:54 -0600
+Started GET "/categories" for ::1 at 2020-10-12 21:50:54 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+Processing by CategoriesController#index as */*
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 1393)
+
+
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.3ms | Allocations: 2560)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:50:54 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.3ms | Allocations: 1029)
+
+
+Started POST "/categories" for ::1 at 2020-10-12 21:51:05 -0600
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"The Unknown", "category"=>{"name"=>"The Unknown"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "The Unknown"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "The Unknown"], ["created_at", "2020-10-13 03:51:05.939796"], ["updated_at", "2020-10-13 03:51:05.939796"]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[35m (111.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+Completed 200 OK in 123ms (Views: 0.6ms | ActiveRecord: 112.7ms | Allocations: 3530)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 21:54:18 -0600
+Started GET "/newest" for ::1 at 2020-10-12 21:54:18 -0600
+Processing by CategoriesController#index as */*
+Processing by ExperiencesController#newest as */*
+  [1m[36mCategory Load (70.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 78ms (Views: 7.3ms | ActiveRecord: 70.8ms | Allocations: 2991)
+
+
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms | Allocations: 3057)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:54:18 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started POST "/categories" for ::1 at 2020-10-12 21:54:29 -0600
+Processing by CategoriesController#create as JSON
+  Parameters: {"name"=>"Hiking", "category"=>{"name"=>"Hiking"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Hiking"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[36mCategory Create (1.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hiking"], ["created_at", "2020-10-13 03:54:29.742536"], ["updated_at", "2020-10-13 03:54:29.742536"]]
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/categories_controller.rb:21:in `create'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 3.5ms | Allocations: 3525)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 21:54:30 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 2290)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:57:15 -0600
+Processing by ExperiencesController#newest as */*
+Started GET "/categories" for ::1 at 2020-10-12 21:57:15 -0600
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 1036)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 2381)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 21:57:15 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 109ms (Views: 108.5ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:03:02 -0600
+Started GET "/categories" for ::1 at 2020-10-12 22:03:02 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+Processing by CategoriesController#index as */*
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1453)
+
+
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 2722)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:03:02 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.5ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.5ms | Allocations: 1058)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:05:51 -0600
+Started GET "/categories" for ::1 at 2020-10-12 22:05:51 -0600
+Processing by ExperiencesController#newest as */*
+Processing by CategoriesController#index as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms | Allocations: 1236)
+
+
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.4ms | Allocations: 3332)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:05:51 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:06:20 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Started GET "/categories" for ::1 at 2020-10-12 22:06:20 -0600
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 1481)
+
+
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.8ms | Allocations: 2446)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:06:20 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started POST "/categories_search" for ::1 at 2020-10-12 22:06:22 -0600
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Birthdays", "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+Started POST "/categories_search" for ::1 at 2020-10-12 22:06:56 -0600
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Birthdays", "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+Started POST "/categories_search" for ::1 at 2020-10-12 22:24:56 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Birthdays", "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+Started POST "/categories_search" for ::1 at 2020-10-12 22:24:58 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#search as JSON
+  Parameters: {"terms"=>"Birthdays", "category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "Birthdays"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `search'
+  [1m[36mExperience Exists? (17.9ms)[0m  [1m[34mSELECT 1 AS one FROM "experiences" WHERE "experiences"."category_id" = ? LIMIT ?[0m  [["category_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:33:in `search'
+Completed 200 OK in 344679ms (Views: 0.3ms | ActiveRecord: 18.2ms | Allocations: 10683)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1055)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 2303)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 2290)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.4ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1028)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 22:30:42 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 2290)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1028)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 2290)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.3ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.2ms | Allocations: 1028)
+
+
+Started GET "/categories" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by CategoriesController#index as */*
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:4:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.3ms | Allocations: 2290)
+
+
+Started GET "/newest" for ::1 at 2020-10-12 22:30:43 -0600
+Processing by ExperiencesController#newest as */*
+  [1m[36mExperience Load (0.2ms)[0m  [1m[34mSELECT "experiences".* FROM "experiences" ORDER BY "experiences"."created_at" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/experiences_controller.rb:43:in `newest'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 1028)
+
+
