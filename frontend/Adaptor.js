@@ -1,32 +1,37 @@
-export default class Adaptor{
+const app = new App();
 
-  function getExps(){
-    fetch('http://localhost:3000/experiences')
-      .then(response => response.json())
-        .then(data => populateGrid('experience', data));
+class Adaptor {
+  constructor(){
+    this.url = 'http://localhost:3000/'
   }
 
-  function newestExp(){
-    fetch('http://localhost:3000/newest')
+   getExps(){
+    fetch(this.url + 'experiences')
       .then(response => response.json())
-        .then(data => populateGrid('newest', data));
+        .then(data => app.populateGrid('experience', data));
   }
 
-  function mostLiked(){
-    fetch("http://localhost:3000/newest")
+   newestExp(){
+    fetch(this.url + 'newest')
+      .then(response => response.json())
+        .then(data => app.populateGrid('newest', data));
+  }
+
+   mostLiked(){
+    fetch(this.url + "mostLiked")
     .then(response => response.json())
-      .then(data => populateGrid('liked', data));
+      .then(data => app.populateGrid('liked', data));
   }
 
-  function allCats(){
-    fetch('http://localhost:3000/categories')
+   allCats(){
+    fetch(this.url + 'categories')
       .then(response => response.json())
         .then(data => {
-          populateCats(data);
+          app.populateCats(data);
         });
   }
 
-  function sendExp(){
+   sendExp(){
     let formData = {
       title: document.getElementById('new-title').value,
       description: document.getElementById('new-description').value,
@@ -43,7 +48,7 @@ export default class Adaptor{
       body: JSON.stringify(formData)
     };
 
-    fetch("http://localhost:3000/experiences", configObj).then(response => response.json()).then(json => console.log(json));
+    fetch(this.url + "experiences", configObj).then(console.log('sent'));
 
     document.getElementById('new-title').value = "";
     document.getElementById('new-description').value = "";
@@ -51,4 +56,49 @@ export default class Adaptor{
     document.getElementById('new-coordinates').value= "";
     location: document.getElementById('new-location').value= "";
   }
+
+   sendCat(){
+    let formData = {
+      name: document.getElementById('new-name').value
+    };
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+
+    fetch(this.url + "categories", configObj).then(console.log('sent'));
+  }
+
+   catSearch(terms){
+    let formData = {
+      terms: terms
+      };
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData)
+    };
+
+    fetch(this.url + "categories_search", configObj)
+      .then(response => response.json())
+        .then(data => {
+          document.getElementById('search-results').style.display = 'block';
+          app.populateGrid('results', data);
+        });
+  }
+
+   refreshExp(){
+    this.newestExp();
+    this.allCats();
+    this.getExps();
+  }
+
 }
