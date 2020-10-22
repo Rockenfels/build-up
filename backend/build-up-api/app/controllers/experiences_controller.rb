@@ -18,8 +18,7 @@ def create
 
   experience = Experience.new(exp_params)
   experience.coordinates = 'None' if experience.coordinates === ""
-  binding.pry()
-  #figure out if you need to put the categories in as an array of strings, or as category objects
+
   if experience.save
     render json: experience
   else

@@ -20,7 +20,6 @@ class App {
   }
 
    toggleNewExp(){
-    console.log('clicked!');
     let newExp = document.getElementById('exp-form');
     if(newExp.style.display === 'none'){
       newExp.style.display = 'block';

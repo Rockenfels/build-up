@@ -1,7 +1,6 @@
 const adaptor =  new Adaptor();
 
  function handleButtons(e){
-    console.log(e);
     buttons = app.getButtons();
   //switch statement for navigation
       switch(e.target){
