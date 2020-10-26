@@ -25,6 +25,12 @@ def create
   end
 end
 
+def categories_search
+  category = Category.find_by(name: params[:terms])
+  experiences = category.experiences
+  render json: experiences
+end
+
 #strong params for categories
 private
   def cat_params

@@ -1,5 +1,3 @@
-const app = new App();
-
 class Adaptor {
   constructor(){
     this.url = 'http://localhost:3000/'
@@ -27,7 +25,8 @@ class Adaptor {
     fetch(this.url + 'categories')
       .then(response => response.json())
         .then(data => {
-          app.populateCats(data);
+          app.setCats(data);
+          return data;
         });
   }
 
@@ -74,9 +73,9 @@ class Adaptor {
     fetch(this.url + "categories", configObj).then(console.log('sent'));
   }
 
-   catSearch(terms){
+   catSearch(){
     let formData = {
-      terms: terms
+      terms: document.getElementById('cat-search-options').value
       };
     let configObj = {
       method: "POST",
@@ -90,15 +89,23 @@ class Adaptor {
     fetch(this.url + "categories_search", configObj)
       .then(response => response.json())
         .then(data => {
-          document.getElementById('search-results').style.display = 'block';
+          console.log(data);
           app.populateGrid('results', data);
         });
   }
 
    refreshExp(){
     this.newestExp();
-    this.allCats();
     this.getExps();
   }
 
 }
+
+const adaptor = new Adaptor();
+adaptor.allCats;
+
+
+
+
+
+

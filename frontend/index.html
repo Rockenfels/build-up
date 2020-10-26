@@ -21,7 +21,13 @@
     <nav id='header-nav'>
       <button id='refresh' type="button" name="refresh"  class='nav-link'>Refresh Experiences</button>
       <button id='new-exp' type="button" name="new-exp"  class='nav-link'>New Experience</button>
-      <button id='new-cat' type="button" name="button">New Category</button>
+      <button id='new-cat' type="button" name="new-cat">New Category</button>
+      <button id="toggle-search" type="button" name="toggle-search">Category Search</button>
+      <form id='cat-search' style='display:none'>
+        <select id='cat-search-options'>
+        </select>
+        <input id='cat-search-submit' type='submit' value='Search'>
+      </form>
 
       <section id='exp-form' style='display:none'>
         <form className="experience-form" action="/experiencs" method="post">
@@ -76,6 +82,11 @@
   </section>
 
   <section id='experience--field'>
+    <div id='search-results' style="display:none">
+      <h2>Search Results</h2>
+      <div id='results-grid'>
+      </div>
+    </div>
     <h2 >Here's what was just built: </h2>
     <div id="newest-grid">
     </div>
@@ -83,6 +94,7 @@
     <div id='experience-grid'>
     </div>
   </section>
+  
   <script src="App.js"></script>
   <script src="Adaptor.js"></script>
   <script src="index.js"></script>

@@ -1,4 +1,10 @@
+
 class App {
+  constructor(){
+    this.cats = [];
+    this.test = 'well, that sucks.'
+  }
+
    toggleCatSearch(){
     let catForm = document.getElementById('cat-search');
     if(catForm.style.display === 'none'){
@@ -91,10 +97,13 @@ class App {
     };
   }
 
-   populateCats(results){
-    let elements  = results
-    let targetGrid = document.getElementById('cat-options');
-    app.removeAllChildNodes(targetGrid);
+   populateCats(target){
+    let elements = app.cats;
+    let targetGrid = document.getElementById(target);
+
+    if(targetGrid !== undefined ){
+      app.removeAllChildNodes(targetGrid);
+    }
 
     //make a new tile for the exp and then append it to the new-grid
   for(let i = 0; i<elements.length; i++) {
@@ -106,15 +115,22 @@ class App {
     };
   }
 
+  setCats(data){
+    this.cats = data;
+  }
+
    getButtons(){
     //JS variables for all nav & search buttons
     return {
       refresh: document.getElementById('refresh'),
       newExp: document.getElementById('new-exp'),
-      catSearchBtn: document.getElementById('cat-search-btn'),
+      toggleSearch: document.getElementById('toggle-search'),
+      catSearchSubmit: document.getElementById('cat-search-submit'),
       newExpSubmit: document.getElementById('new-exp-submit'),
       newCatSubmit: document.getElementById('new-cat-submit'),
       newCat: document.getElementById('new-cat')
     };
   }
 }
+
+const app = new App();
