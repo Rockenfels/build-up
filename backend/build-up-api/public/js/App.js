@@ -2,7 +2,6 @@
 class App {
   constructor(){
     this.cats = [];
-    this.test = 'well, that sucks.'
   }
 
    toggleCatSearch(){
@@ -28,7 +27,7 @@ class App {
    toggleNewExp(){
     let newExp = document.getElementById('exp-form');
     if(newExp.style.display === 'none'){
-      newExp.style.display = 'block';
+      newExp.style.display = 'inline';
     }
     else {
       newExp.style.display = 'none';
